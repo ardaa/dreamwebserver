@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group 'com.dreamgames'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'main.Main'
+    }
+
+}
+dependencies {
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation "org.mockito:mockito-core:3.+" 
+    implementation "org.mockito:mockito-core:3.+" 
+    testImplementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
+}
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'PASSED', 'SKIPPED', 'FAILED', 'STANDARD_ERROR', 'STANDARD_OUT'
+    }
+}

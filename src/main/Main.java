@@ -29,12 +29,16 @@ public class Main {
             String[] query = line.split(" ");
 
             // parse and print parameters and values from the query string
-            String[] params = query[1].split("\\?")[1].split("&");
+            try{
+                String[] params = query[1].split("\\?")[1].split("&");
             for (String param : params) {
                 String[] pair = param.split("=");
                 System.out.println(pair[0] + ": " + pair[1]);
             }
-
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("No parameters");
+            }
+            
             sendResponse(output);
         } finally {
             socket.close();
@@ -45,15 +49,7 @@ public class Main {
         output.write("HTTP/1.1 200 OK\r\n".getBytes());
         output.write("Content-Type: text/html\r\n".getBytes());
         output.write("\r\n".getBytes());
-
-        // write index.html in src
-        File file = new File("src/main/index.html");
-        try (FileInputStream fileInputStream = new FileInputStream(file)) {
-            byte[] bytes = new byte[(int) file.length()];
-            fileInputStream.read(bytes);
-            output.write(bytes);
-            output.write("\r\n".getBytes());
-        }
+        output.write("<h1>Hello World!</h1>".getBytes());
         output.flush();
     }
 }
