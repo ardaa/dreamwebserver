@@ -25,11 +25,12 @@ public class Main {
              OutputStream output = socket.getOutputStream()) {
 
             // read and print request
-            String line = reader.readLine();
-            String[] query = line.split(" ");
+
 
             // parse and print parameters and values from the query string
             try{
+                String line = reader.readLine();
+                String[] query = line.split(" ");
                 String[] params = query[1].split("\\?")[1].split("&");
             for (String param : params) {
                 String[] pair = param.split("=");
