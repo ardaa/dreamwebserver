@@ -23,13 +23,13 @@ public class Main {
         try (InputStream input = socket.getInputStream();
              BufferedReader reader = new BufferedReader(new InputStreamReader(input));
              OutputStream output = socket.getOutputStream()) {
-
-            // read and print request
-
-
             // parse and print parameters and values from the query string
             try{
                 String line = reader.readLine();
+                System.out.println(line);
+                if (line == null || line.isEmpty()) {
+                    return;
+                }
                 String[] query = line.split(" ");
                 String[] params = query[1].split("\\?")[1].split("&");
             for (String param : params) {
