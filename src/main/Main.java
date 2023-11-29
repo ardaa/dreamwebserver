@@ -50,7 +50,30 @@ public class Main {
         output.write("HTTP/1.1 200 OK\r\n".getBytes());
         output.write("Content-Type: text/html\r\n".getBytes());
         output.write("\r\n".getBytes());
-        output.write("<h1>Hello World!</h1>".getBytes());
+        output.write("<!DOCTYPE html>".getBytes());
+             output.write("<html lang=\"en\">\n".getBytes());
+            output.write("<head>\n".getBytes());
+            output.write("<style>\n".getBytes());
+            output.write(".app{\n".getBytes());
+            output.write("display: flex;\n".getBytes());
+            output.write("justify-content: center;\n".getBytes());
+            output.write("align-items: center;\n".getBytes());
+            output.write("flex-direction: column;\n".getBytes());
+            output.write("background-color: #2e2ee6;\n".getBytes());
+            output.write("color: white;\n".getBytes());
+            output.write("height: 100vh;\n".getBytes());
+            output.write("width: 100vw;\n".getBytes());
+            output.write("padding: 0;\n".getBytes());
+            output.write("}\n".getBytes());
+            output.write("</style>\n".getBytes());
+            output.write("</head>\n".getBytes());
+            output.write("<body style=\"margin: 0; padding: 0;\">\n".getBytes());
+            output.write("<div class=\"app\">\n".getBytes());
+            output.write("<img src=\"https://dreamgames.com/Content/images/logo-white.svg\" alt=\"Dream logo\"/>\n".getBytes());
+            output.write("<h1>Canary</h1>\n".getBytes());
+            output.write("</div>\n".getBytes());
+            output.write("</html>\n".getBytes());
+
         output.flush();
     }
 }
