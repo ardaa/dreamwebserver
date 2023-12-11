@@ -70,6 +70,7 @@ public class Main {
             output.write("<body style=\"margin: 0; padding: 0;\">\n".getBytes());
             output.write("<div class=\"app\">\n".getBytes());
             output.write("<img src=\"https://dreamgames.com/Content/images/logo-white.svg\" alt=\"Dream logo\"/>\n".getBytes());;
+            output.write("<h1>Hello Dream Games!</h1>\n".getBytes());
             output.write("</div>\n".getBytes());
             output.write("</html>\n".getBytes());
         output.flush();

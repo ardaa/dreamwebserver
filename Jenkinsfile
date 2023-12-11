@@ -36,11 +36,11 @@ pipeline {
     }
     stage('Deploying container to Kubernetes') {
       steps {
-         sshagent(['jenkins-ssh']) {
-                  sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.57.218.202 -t "git clone https://github.com/ardaa/dreamwebserver.git && cd dreamwebserver && sudo ansible-playbook deployment.yaml -i inventory.ini"'
+         
+                  sh '/var/lib/jenkins/.local/bin/ansible-playbook /home/admin/deploy.yaml -i /home/admin/inventory.ini'
 
 
-        }
+        
       }
     }
   }
