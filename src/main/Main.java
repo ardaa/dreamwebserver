@@ -34,7 +34,7 @@ public class Main {
                 String[] params = query[1].split("\\?")[1].split("&");
             for (String param : params) {
                 String[] pair = param.split("=");
-                System.out.println(pair[0] + ": " + pair[1]);
+                System.out.println("Parameter: " + pair[0] + ": " + pair[1]);
             }
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("No parameters");
